@@ -396,18 +396,24 @@
   // Troque pelo link de convite real da sua Comunidade/Grupo do WhatsApp:
   const COMMUNITY_LINK = "https://chat.whatsapp.com/BSF7CQghsgs41eVRUU3DVi";
 
-  // (Opcional) Meta Pixel — troque SEU_PIXEL_ID e descomente para rastrear conversão real.
-  // !function(f,b,e,v,n,t,s){...}(window, document,'script',
-  // 'https://connect.facebook.net/en_US/fbevents.js');
-  // fbq('init', 'SEU_PIXEL_ID');
-  // fbq('track', 'PageView');
+  // Meta Pixel — Iron 3D
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+       if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+       n.queue=[];t=b.createElement(e);t.async=!0;
+       t.src=v;s=b.getElementsByTagName(e)[0];
+       s.parentNode.insertBefore(t,s)}(window, document,'script',
+                                         'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1731483385651647');
+    fbq('track', 'PageView');
 
   document.querySelectorAll('#cta-header, #cta-hero, #cta-eco, #cta-final').forEach(el => {
     el.href = COMMUNITY_LINK;
     el.target = "_blank";
     el.rel = "noopener";
     el.addEventListener('click', () => {
-      // if (typeof fbq === 'function') fbq('track', 'Lead');
+            if (typeof fbq === 'function') fbq('track', 'Lead');
     });
   });
 
